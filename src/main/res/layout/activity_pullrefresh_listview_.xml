@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.pullRefresh.PullrefreshListviewActivity"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/toolbar_layout"/>
+
+    <com.example.viewdome.ui.view.pull.PullRefreshLayout
+        android:id="@+id/pullRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.viewdome.ui.view.pull.index.PullRefreshListView
+            android:id="@+id/pullRefreshListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="2px"
+            android:divider="@android:color/darker_gray"
+            >
+        </com.example.viewdome.ui.view.pull.index.PullRefreshListView>
+
+    </com.example.viewdome.ui.view.pull.PullRefreshLayout>
+</LinearLayout>

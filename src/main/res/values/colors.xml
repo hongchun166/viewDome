@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- title主色-->
+    <color name="colorPrimary">#56aaff</color>
+    <!-- 状态栏颜色 -->
+    <color name="colorPrimaryDark">#aad4ff</color>
+    <!-- title 字体色 -->
+    <color name="textColorPrimary">#FFFFFF</color>
+    <!-- -->
+    <color name="colorAccent">#FF4081</color>
+    <!-- 窗口的背景颜色 -->
+    <color name="windowBackground">#FFFFFF</color>
+
+    <color name="colorBlack">#000000</color>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- 自定义圆形imageview/圆角图imageview 自定义属性 开始 -->
+
+    <attr name="borderRadius" format="dimension" />
+    <attr name="type">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
+    <attr name="border_thickness" format="dimension" />
+    <attr name="border_inside_color" format="color" />
+    <attr name="border_outside_color" format="color"/>
+
+    <declare-styleable name="MRoundedBitmapView">\
+        /** 圆角大小*/
+        <attr name="borderRadius" />
+
+        /** 类型 circle圆形图 、round圆角图 */
+        <attr name="type" />
+
+        /** 边框厚度 (无效) **/
+        <attr name="border_thickness"/>
+
+        /** 内边框颜色 (无效)**/
+        <attr name="border_inside_color"/>
+
+        /** 外边框颜色 (无效)**/
+        <attr name="border_outside_color"/>
+    </declare-styleable>
+    <!-- 自定义圆形imageview/圆角图imageview 自定义结束 -->
+
+
+</resources>

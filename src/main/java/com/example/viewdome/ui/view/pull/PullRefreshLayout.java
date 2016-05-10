@@ -19,6 +19,7 @@ import com.example.viewdome.R;
 
 /**
  * Created by TianHongChun on 2016/4/17.
+ * 下拉上啦刷新view
  */
 public class PullRefreshLayout extends RelativeLayout {
     Context context;

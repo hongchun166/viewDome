@@ -1,10 +1,16 @@
 package com.example.viewdome.ui.activity;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -21,9 +27,12 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.viewdome.R;
+import com.example.viewdome.ui.activity.pinnedHeader.PinnedHeaderActivity;
+import com.example.viewdome.ui.adapter.MFragmentPagerAdapter;
 import com.example.viewdome.ui.dialog.LoadDialog;
 import com.example.viewdome.ui.dialog.MenuMainPopupWindown;
 import com.example.viewdome.ui.fragment.MainFragment;
+import com.example.viewdome.ui.fragment.TwoFragment;
 
 import org.w3c.dom.ProcessingInstruction;
 
@@ -33,24 +42,38 @@ import java.util.List;
 
 public class MainActivity extends BaseExitActivity {
 
-
+    Toolbar toolbar;
+    TextView titleTextView;
+    Button menuButton;
+    TabLayout tabLayout;
     FloatingActionButton fab;
     DrawerLayout drawerLayout;
-    Button menuButton;
+    ViewPager viewPager;
+
+
+    MFragmentPagerAdapter mFragmentPagerAdapter;
+    List<Fragment> fragmentList;
+    List<String> titles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-
         initView();
+        initEven();
+        fragmentList=new ArrayList<>();
+        fragmentList.add(MainFragment.getInstance());
+        fragmentList.add(TwoFragment.getInstance());
 
-        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.frameLayout,MainFragment.getInstance(),"MainFragment").commit();
+        titles=new ArrayList<>();
+        titles.add("main");
+        titles.add("two");
 
+        mFragmentPagerAdapter = new MFragmentPagerAdapter(getSupportFragmentManager(), fragmentList, titles);
+        viewPager.setAdapter(mFragmentPagerAdapter);
+
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override
@@ -66,15 +89,19 @@ public class MainActivity extends BaseExitActivity {
     }
 
     private void initView(){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        TextView titleTextView=(TextView)findViewById(R.id.textview_title);
+            toolbar = (Toolbar) findViewById(R.id.toolbar);
+        titleTextView=(TextView)findViewById(R.id.textview_title);
         initToolBar(toolbar);
         titleTextView.setVisibility(View.VISIBLE);
         titleTextView.setText("主页");
-
         menuButton=(Button)findViewById(R.id.button_menu);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+        menuButton.setVisibility(View.VISIBLE);
+        menuButton.setText("MENU");
 
+        viewPager=(ViewPager)findViewById(R.id.viewPager);
+        tabLayout=(TabLayout)findViewById(R.id.tab_layout);
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
 
         // DrawerLayout 与menu绑定
         drawerLayout=(DrawerLayout)findViewById(R.id.drawerLayout);
@@ -82,15 +109,21 @@ public class MainActivity extends BaseExitActivity {
         drawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
+    }
+
+    private void initEven(){
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent=new Intent(view.getContext(), PinnedHeaderActivity.class);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,fab,fab.getTransitionName()).toBundle());
+                }else {
+                    startActivity(intent);
+                }
             }
         });
-
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,5 +132,27 @@ public class MainActivity extends BaseExitActivity {
 
             }
         });
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0) {
+                    fab.show();
+                } else {
+                    fab.hide();
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
+
 }

@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.viewdome.R;
+import com.example.viewdome.ui.activity.bottommenu.BottomMenuActivity;
 import com.example.viewdome.ui.activity.imaview.RoundedBitmapViewActivity;
 import com.example.viewdome.ui.activity.pinnedHeader.PinnedHeaderActivity;
 import com.example.viewdome.ui.activity.pullRefresh.PullRefreshTextViewActivity;
@@ -30,9 +31,6 @@ public class MainFragment extends BaseFragment {
     SwipeRefreshLayout swipeRefreshLayout;
     private static MainFragment mainFragment;
 
-    private MainFragment(){
-
-    }
     public static MainFragment getInstance(){
         if(mainFragment==null){
             synchronized (MainFragment.class){
@@ -72,6 +70,7 @@ public class MainFragment extends BaseFragment {
                     case 0:{
                         Intent intent=new Intent(context, PullrefreshListviewActivity.class);
                         startActivity(intent);
+
                         break;
                     }
                     case 1:{
@@ -91,6 +90,11 @@ public class MainFragment extends BaseFragment {
                     }
                     case 4:{
                         Intent intent=new Intent(context, RoundedBitmapViewActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 5:{
+                        Intent intent=new Intent(context, BottomMenuActivity.class);
                         startActivity(intent);
                         break;
                     }
@@ -131,6 +135,10 @@ public class MainFragment extends BaseFragment {
         stringList.add("字母分组,导航;PinnedHeaderListView.AlphabetView");
         stringList.add("滑动删除:SwipeListView.SwipeItemView");
         stringList.add("圆角图片:MRoundedBitmapView");
+        stringList.add("底部menu菜单:bottommenu");
+        for (int i=0;i<20;i++){
+            stringList.add("test:"+i);
+        }
         return stringList;
     }
 }

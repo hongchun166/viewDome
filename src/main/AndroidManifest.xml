@@ -34,7 +34,10 @@
         <activity
             android:name=".ui.activity.imaview.RoundedBitmapViewActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity
+            android:name=".ui.activity.bottommenu.BottomMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>

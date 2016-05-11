@@ -4,7 +4,20 @@
     tools:context=".ui.activity.MainActivity">
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="1"
         android:title="@string/action_settings"
+        android:icon="@mipmap/ic_launcher"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings2"
+        android:orderInCategory="2"
+        android:title="@string/action_settings"
+        android:icon="@mipmap/ic_launcher"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings3"
+        android:orderInCategory="3"
+        android:title="@string/action_settings"
+        android:icon="@mipmap/ic_launcher"
         app:showAsAction="never" />
 </menu>

@@ -8,10 +8,11 @@
     android:id="@+id/rootview"
     >
     <LinearLayout
+        android:id="@+id/rootview_item"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         >
         <LinearLayout
@@ -23,6 +24,7 @@
             android:orientation="vertical"
             >
             <ImageView
+                android:id="@+id/imageview_one"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@mipmap/main_lottery"
@@ -47,6 +49,7 @@
             android:gravity="center"
             >
             <ImageView
+                android:id="@+id/imageview_two"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@mipmap/main_settings"
@@ -69,6 +72,7 @@
             android:gravity="center"
             android:layout_height="wrap_content">
             <ImageView
+                android:id="@+id/imageview_three"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@mipmap/main_shop"

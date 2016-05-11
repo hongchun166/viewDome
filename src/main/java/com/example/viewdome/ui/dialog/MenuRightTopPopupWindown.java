@@ -14,13 +14,13 @@ import com.example.viewdome.utils.ShareUtil;
 /**
  * Created by TianHongChun on 2016/5/4.
  */
-public class MenuMainPopupWindown extends PopupWindow {
+public class MenuRightTopPopupWindown extends PopupWindow {
 
     Context context;
 
     Button setttingButton,shareButton,helpButton;
 
-    public MenuMainPopupWindown(Context context) {
+    public MenuRightTopPopupWindown(Context context) {
         super(context);
         initView(context);
     }
@@ -28,7 +28,7 @@ public class MenuMainPopupWindown extends PopupWindow {
     private  void initView(Context context){
         this.context=context;
         LayoutInflater inflater=LayoutInflater.from(context);
-        View rootView=inflater.inflate(R.layout.dialog_main_menu_popupwindown, null);
+        View rootView=inflater.inflate(R.layout.dialog_righttop_menu_popupwindown, null);
         setttingButton=(Button)rootView.findViewById(R.id.button_settting);
         shareButton=(Button)rootView.findViewById(R.id.button_share);
         helpButton=(Button)rootView.findViewById(R.id.button_help);
@@ -39,7 +39,6 @@ public class MenuMainPopupWindown extends PopupWindow {
 
         this.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         this.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        this.setContentView(rootView);
         this.setFocusable(true);
         this.setTouchable(true);
         this.setOutsideTouchable(true);
@@ -66,6 +65,7 @@ public class MenuMainPopupWindown extends PopupWindow {
             }
         }
     };
+
 
 
 }

@@ -19,7 +19,7 @@ public class BaseDialog extends DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.Dialog_No_Border);
+
     }
         @Nullable
     @Override
@@ -27,8 +27,4 @@ public class BaseDialog extends DialogFragment {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    @Override
-    public void show(FragmentManager manager, String tag) {
-        super.show(manager, tag);
-    }
 }

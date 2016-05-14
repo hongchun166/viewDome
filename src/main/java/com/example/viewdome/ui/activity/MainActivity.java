@@ -22,7 +22,7 @@ import com.example.viewdome.ui.adapter.MFragmentPagerAdapter;
 import com.example.viewdome.ui.dialog.LoadDialog;
 import com.example.viewdome.ui.dialog.MenuRightTopPopupWindown;
 import com.example.viewdome.ui.fragment.MainFragment;
-import com.example.viewdome.ui.fragment.TwoFragment;
+import com.example.viewdome.ui.fragment.PojoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +51,7 @@ public class MainActivity extends BaseExitActivity {
         initEven();
         fragmentList=new ArrayList<>();
         fragmentList.add(MainFragment.getInstance());
-        fragmentList.add(TwoFragment.getInstance());
+        fragmentList.add(PojoFragment.getInstance());
 
         titles=new ArrayList<>();
         titles.add("main");

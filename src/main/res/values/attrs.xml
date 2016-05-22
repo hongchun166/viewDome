@@ -32,4 +32,13 @@
     <!-- 自定义圆形imageview/圆角图imageview 自定义结束 -->
 
 
+<declare-styleable name="CircleProgressView">
+        <attr name="roundColor" format="color"/>
+        <attr name="roundProgressColorStart" format="color"/>
+        <attr name="roundProgressColorEnd" format="color"/>
+        <attr name="roundWidth" format="dimension"/>
+        <attr name="startAngle" format="integer"/>
+    </declare-styleable>
+
+
 </resources>

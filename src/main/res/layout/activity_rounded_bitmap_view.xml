@@ -47,4 +47,17 @@
         app:border_thickness="1dp"
         app:type="circle" />
 
+
+	 <om.example.viewdome.ui.view.progress.CircleProgressView
+	                android:id="@+id/circleProgressView"
+	                android:layout_centerInParent="true"
+	                android:layout_width="@dimen/dimen_main_headportrait_size"
+	                android:layout_height="@dimen/dimen_main_headportrait_size"
+	                app:roundWidth="@dimen/dimen_main_headValue_circleProgress_width"
+	                app:roundColor="@color/coloRroundColor"
+	                app:roundProgressColorStart="@color/colorRoundProgressColorStart"
+	                app:roundProgressColorEnd="@color/colorRoundProgressColorEnd"
+	                />
+
+
 </LinearLayout>
